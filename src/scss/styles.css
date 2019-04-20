@@ -1,0 +1,63 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card-component {
+  color: #fff;
+  font-size: 2em;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.card-component .card-name {
+  width: 50%;
+}
+
+.card-component .card-roll {
+  width: 50%;
+  font-weight: bold;
+}
+
+.player-color {
+  background: #5c6dcd;
+}
+
+.monster-color {
+  background: indianred;
+}
+
+.blank-card {
+  border: 2px dashed #5ccd5c;
+  color: #b3bcec;
+}
+
+label {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.inputValue {
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid indianred;
+}
+
+.input-button {
+  color: #fff;
+  font-size: 2em;
+  background: #5ccd5c;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+}
+/*# sourceMappingURL=styles.css.map */

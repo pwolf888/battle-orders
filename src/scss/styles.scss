@@ -1,0 +1,67 @@
+$monster-color: indianred;
+$player-color: rgb(92, 109, 205);
+$add-button: rgb(92, 205, 92);
+$grey-color: rgb(179, 188, 236);
+body {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.card-component {
+    color: #fff;
+    font-size: 2em;
+
+    
+
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    .card-name {
+        width: 50%;
+        }
+
+    .card-roll {
+        width:50%;
+        font-weight: bold;
+    }
+
+    
+
+}
+.player-color {
+    background: $player-color;
+ }
+
+ .monster-color {
+     background: $monster-color;
+ }
+ .blank-card {
+     border: 2px dashed $add-button;
+    color: $grey-color;
+ }
+label {
+
+    font-size: 2rem;
+    padding: 1rem;
+
+}
+.inputValue {
+
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid $monster-color;
+}
+
+.input-button {
+    color: #fff;
+    font-size: 2em;
+
+    background: $add-button;
+
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+}
