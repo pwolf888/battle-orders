@@ -11,7 +11,7 @@ export default function playerReducer(state = [], {type, payload}) {
                     monster: payload.monster
                 }
             ]
-
+      
         default:
             return state;
     }

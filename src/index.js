@@ -8,16 +8,17 @@ import {combineReducers, createStore} from 'redux';
 import {Provider} from 'react-redux';
 
 import playerReducer from './reducers/add-player-reducer';
+import nextPlayerReducer from './reducers/next-player-reducer';
 
-const allReducers = combineReducers({players: playerReducer});
+const allReducers = combineReducers({players: playerReducer, nextPlayer: nextPlayerReducer});
 
 const store = createStore(allReducers, {
 
     players: [
-    //     {name: 'alex', roll: 30, monster: false},
-    //    {name: 'wolf', roll: 20, monster: true},
+        {name: 'alex', roll: 30, monster: 'monster-color'},
+       {name: 'wolf', roll: 20, monster: 'monster-color'},
        
-    //    {name: 'corey', roll: 40, monster: false}
+       {name: 'corey', roll: 40, monster: 'monster-color'}
 
     ]
 

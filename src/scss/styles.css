@@ -39,6 +39,39 @@ body {
   color: #b3bcec;
 }
 
+.rainbow-card {
+  background: -webkit-gradient(linear, right top, left top, from(#ff4040), color-stop(#ff9331), color-stop(#6bd65d), color-stop(#5da7d6), color-stop(#635dd6), color-stop(#b35dd6), to(#d65dae));
+  background: linear-gradient(270deg, #ff4040, #ff9331, #6bd65d, #5da7d6, #635dd6, #b35dd6, #d65dae);
+  background-size: 1400% 1400%;
+  -webkit-animation: rainbow 55s ease infinite;
+  animation: rainbow 55s ease infinite;
+  border: 2px black solid;
+}
+
+.turn-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  font-size: 2em;
+}
+
+.turn-controls .next-button {
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: #d3af38;
+}
+
+.turn-controls .prev-button {
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: #d3af38;
+}
+
 label {
   font-size: 2rem;
   padding: 1rem;
@@ -59,5 +92,29 @@ label {
   padding: 1rem;
   margin: 1rem;
   border-radius: 15px;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

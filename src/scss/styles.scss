@@ -2,6 +2,7 @@ $monster-color: indianred;
 $player-color: rgb(92, 109, 205);
 $add-button: rgb(92, 205, 92);
 $grey-color: rgb(179, 188, 236);
+$orange-color: rgb(211, 175, 56);
 body {
     font-family: 'Courier New', Courier, monospace;
 
@@ -40,6 +41,42 @@ body {
      border: 2px dashed $add-button;
     color: $grey-color;
  }
+
+ .rainbow-card {
+    background: linear-gradient(270deg, #ff4040, #ff9331, #6bd65d, #5da7d6, #635dd6, #b35dd6, #d65dae);
+    background-size: 1400% 1400%;
+    
+    -webkit-animation: rainbow 55s ease infinite;
+    -moz-animation: rainbow 55s ease infinite;
+    animation: rainbow 55s ease infinite;
+    
+   border: 2px black solid;
+ }
+
+.turn-controls {
+    display: flex;
+    color: #fff;
+    font-size: 2em;
+    
+    .next-button {
+        width: 50%;
+        padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+        background: $orange-color;
+    }
+    .prev-button {
+        width:50%;
+        padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+        background: $orange-color;
+    }
+}
+
+
+
+
 label {
 
     font-size: 2rem;
@@ -64,4 +101,22 @@ label {
     padding: 1rem;
     margin: 1rem;
     border-radius: 15px;
+}
+
+
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
