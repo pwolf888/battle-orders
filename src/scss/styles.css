@@ -1,10 +1,28 @@
+.container-grid {
+  display: -ms-grid;
+  display: grid;
+  grid: auto-flow / 1fr 1fr;
+}
+
+@media (max-width: 767px) {
+  .container-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 body {
   font-family: 'Courier New', Courier, monospace;
 }
 
 .card-component {
   color: #fff;
-  font-size: 2em;
+  font-size: 1.2em;
   padding: 1rem;
   margin: 1rem;
   border-radius: 15px;
@@ -43,9 +61,9 @@ body {
   background: -webkit-gradient(linear, right top, left top, from(#ff4040), color-stop(#ff9331), color-stop(#6bd65d), color-stop(#5da7d6), color-stop(#635dd6), color-stop(#b35dd6), to(#d65dae));
   background: linear-gradient(270deg, #ff4040, #ff9331, #6bd65d, #5da7d6, #635dd6, #b35dd6, #d65dae);
   background-size: 1400% 1400%;
-  -webkit-animation: rainbow 55s ease infinite;
-  animation: rainbow 55s ease infinite;
-  border: 2px black solid;
+  -webkit-animation: rainbow 5s ease infinite;
+  animation: rainbow 5s ease infinite;
+  border: 2px black dashed;
 }
 
 .turn-controls {

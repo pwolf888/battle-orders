@@ -32,7 +32,6 @@ class App extends Component {
         }
         let roll = document.getElementsByClassName('inputValue')[2].value;
 
-       
         if (name.length > 0 && isNaN(name) && roll > 0 && !isNaN(roll)) {
             this
                 .props
@@ -44,36 +43,46 @@ class App extends Component {
     activePlayer = 0;
     onNextPlayer() {
 
-      console.log("onNextPlayer: "+this.props);
-      this.activePlayer++;
-      if(this.activePlayer === this.props.players.length ) {
-        this.activePlayer = 0;
-      }
-       this.props.onNextPlayer(this.activePlayer);
+        console.log("onNextPlayer: " + this.props);
+        this.activePlayer++;
+        if (this.activePlayer === this.props.players.length) {
+            this.activePlayer = 0;
+        }
+        this
+            .props
+            .onNextPlayer(this.activePlayer);
     }
 
     render() {
         return (
             <div className="App">
-
-                <InputComponent/>
-                <div className="input-button" onClick={this.onAddPlayer}>Add</div>
-                <div className="turn-controls">
-                    <div className="prev-button">Prev</div>
-                    <div className="next-button" onClick={this.onNextPlayer}>Next</div>
-                </div>
-                {this.props.players.length > 0
-                    ? this
-                        .props
-                        .players
-                        .sort((a, b) => b.roll - a.roll)
-                        .map((player, index) => <CardComponent key={index} order={index} turn={this.props.nextPlayer} players={player}/>)
-
-                    : <div className="card-component rainbow-card">
-                        <div>Add a Player or a Spooky Monster!</div>
+                <div className="container-grid">
+                    <div className="left-side">
+                        <InputComponent/>
+                        <div className="input-button" onClick={this.onAddPlayer}>Add</div>
+                        <div className="turn-controls">
+                            <div className="prev-button">Prev</div>
+                            <div className="next-button" onClick={this.onNextPlayer}>Next</div>
+                        </div>
                     </div>
-}
+                    <div className="right-side">
+                        {this.props.players.length > 0
+                            ? this
+                                .props
+                                .players
+                                .sort((a, b) => b.roll - a.roll)
+                                .map((player, index) => <CardComponent
+                                    key={index}
+                                    order={index}
+                                    turn={this.props.nextPlayer}
+                                    players={player}/>)
 
+                            : <div className="card-component rainbow-card">
+                                <div>Add a Player or a Spooky Monster!</div>
+                            </div>
+}
+                    </div>
+                </div>
             </div>
         );
     }
@@ -84,7 +93,6 @@ const mapStateToProps = state => ({players: state.players, nextPlayer: state.nex
 const mapActionsToProps = {
     onAddPlayer: addPlayer,
     onNextPlayer: nextPlayer
-
 
 }
 

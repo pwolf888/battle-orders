@@ -3,13 +3,27 @@ $player-color: rgb(92, 109, 205);
 $add-button: rgb(92, 205, 92);
 $grey-color: rgb(179, 188, 236);
 $orange-color: rgb(211, 175, 56);
+
+$md-width: 767px;
+
+
+.container-grid {
+    display: grid;
+    grid: auto-flow / 1fr 1fr;
+    @media (max-width:$md-width) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 body {
     font-family: 'Courier New', Courier, monospace;
 
 }
 .card-component {
     color: #fff;
-    font-size: 2em;
+    font-size: 1.2em;
 
     
 
@@ -46,11 +60,11 @@ body {
     background: linear-gradient(270deg, #ff4040, #ff9331, #6bd65d, #5da7d6, #635dd6, #b35dd6, #d65dae);
     background-size: 1400% 1400%;
     
-    -webkit-animation: rainbow 55s ease infinite;
-    -moz-animation: rainbow 55s ease infinite;
-    animation: rainbow 55s ease infinite;
+    -webkit-animation: rainbow 5s ease infinite;
+    -moz-animation: rainbow 5s ease infinite;
+    animation: rainbow 5s ease infinite;
     
-   border: 2px black solid;
+   border: 2px black dashed;
  }
 
 .turn-controls {
