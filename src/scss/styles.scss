@@ -24,7 +24,7 @@ body {
 .card-component {
     color: #fff;
     font-size: 1.2em;
-
+    
     
 
     padding: 1rem;
@@ -71,7 +71,8 @@ body {
     display: flex;
     color: #fff;
     font-size: 2em;
-    
+    cursor: pointer;
+
     .next-button {
         width: 50%;
         padding: 1rem;
@@ -109,7 +110,7 @@ label {
 .input-button {
     color: #fff;
     font-size: 2em;
-
+    cursor: pointer;
     background: $add-button;
 
     padding: 1rem;

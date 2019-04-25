@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {addPlayer} from "./actions/add-player-action";
 import {nextPlayer} from "./actions/next-player-action";
 
+
 import CardComponent from "./components/CardComponent";
 import InputComponent from "./components/InputComponent";
 class App extends Component {
@@ -17,6 +18,10 @@ class App extends Component {
 
         this.onNextPlayer = this
             .onNextPlayer
+            .bind(this);
+
+        this.onPrevPlayer = this
+            .onPrevPlayer
             .bind(this);
 
     }
@@ -43,11 +48,24 @@ class App extends Component {
     activePlayer = 0;
     onNextPlayer() {
 
-        console.log("onNextPlayer: " + this.props);
+        console.log("onNextPlayer: " +  this.activePlayer);
         this.activePlayer++;
         if (this.activePlayer === this.props.players.length) {
             this.activePlayer = 0;
         }
+        
+        this
+            .props
+            .onNextPlayer(this.activePlayer);
+    }
+    onPrevPlayer() {
+
+        console.log("onPrevPlayer: " + this.activePlayer);
+        this.activePlayer--;
+        if (this.activePlayer === -1) {
+            this.activePlayer = this.props.players.length - 1;
+        }
+        
         this
             .props
             .onNextPlayer(this.activePlayer);
@@ -61,7 +79,7 @@ class App extends Component {
                         <InputComponent/>
                         <div className="input-button" onClick={this.onAddPlayer}>Add</div>
                         <div className="turn-controls">
-                            <div className="prev-button">Prev</div>
+                            <div className="prev-button" onClick={this.onPrevPlayer}>Prev</div>
                             <div className="next-button" onClick={this.onNextPlayer}>Next</div>
                         </div>
                     </div>

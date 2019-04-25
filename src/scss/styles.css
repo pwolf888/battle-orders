@@ -72,6 +72,7 @@ body {
   display: flex;
   color: #fff;
   font-size: 2em;
+  cursor: pointer;
 }
 
 .turn-controls .next-button {
@@ -106,6 +107,7 @@ label {
 .input-button {
   color: #fff;
   font-size: 2em;
+  cursor: pointer;
   background: #5ccd5c;
   padding: 1rem;
   margin: 1rem;

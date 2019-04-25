@@ -10,6 +10,7 @@ import {Provider} from 'react-redux';
 import playerReducer from './reducers/add-player-reducer';
 import nextPlayerReducer from './reducers/next-player-reducer';
 
+
 const allReducers = combineReducers({players: playerReducer, nextPlayer: nextPlayerReducer});
 
 const store = createStore(allReducers, {
