@@ -8,7 +8,8 @@ export default function playerReducer(state = [], {type, payload}) {
                 ...state, {
                     name: payload.name,
                     roll: payload.roll,
-                    monster: payload.monster
+                    monster: payload.monster,
+                    health: payload.health
                 }
             ]
       

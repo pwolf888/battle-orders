@@ -27,24 +27,29 @@ class App extends Component {
     }
 
     onAddPlayer() {
-
+        let health = null;
         let name = document.getElementsByClassName('inputValue')[0].value;
         let monster = document.getElementsByClassName('inputValue')[1].checked;
         if (monster) {
             monster = ' monster-color';
+            health = document.getElementsByClassName('inputValue')[2].value;
         } else {
             monster = ' player-color';
         }
-        let roll = document.getElementsByClassName('inputValue')[2].value;
+        
+        let roll = document.getElementsByClassName('inputValue')[3].value;
 
-        if (name.length > 0 && isNaN(name) && roll > 0 && !isNaN(roll)) {
+        if (name.length > 0 && isNaN(name) && roll > 0 && !isNaN(roll) ) {
             this
                 .props
-                .onAddPlayer(name, roll, monster);
+                .onAddPlayer(name, roll, monster, health);
 
         }
 
     }
+
+
+ 
     activePlayer = 0;
     onNextPlayer() {
 
@@ -71,12 +76,14 @@ class App extends Component {
             .onNextPlayer(this.activePlayer);
     }
 
+
+
     render() {
         return (
             <div className="App">
                 <div className="container-grid">
                     <div className="left-side">
-                        <InputComponent/>
+                        <InputComponent />
                         <div className="input-button" onClick={this.onAddPlayer}>Add</div>
                         <div className="turn-controls">
                             <div className="prev-button" onClick={this.onPrevPlayer}>Prev</div>
@@ -93,6 +100,7 @@ class App extends Component {
                                     key={index}
                                     order={index}
                                     turn={this.props.nextPlayer}
+                                   
                                     players={player}/>)
 
                             : <div className="card-component rainbow-card">
@@ -106,12 +114,12 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({players: state.players, nextPlayer: state.nextPlayer});
+const mapStateToProps = state => ({players: state.players, nextPlayer: state.nextPlayer });
 
 const mapActionsToProps = {
     onAddPlayer: addPlayer,
     onNextPlayer: nextPlayer
-
+    
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(App);
