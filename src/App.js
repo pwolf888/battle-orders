@@ -8,6 +8,8 @@ import {nextPlayer} from "./actions/next-player-action";
 
 import CardComponent from "./components/CardComponent";
 import InputComponent from "./components/InputComponent";
+import TurnControlsComponent from "./components/TurnControlsComponent";
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -90,17 +92,17 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <div className="card">
+                    <h1>battle orders</h1>
+                    <hr />
+                </div>
                 <div className="container-grid">
                     <div className="left-side">
                         <InputComponent/>
                         <div className="input-button" onClick={this.onAddPlayer}>Add</div>
                         {this.props.players.length > 1
-                            ? <div className="turn-controls">
-                                    <div className="prev-button" onClick={this.onPrevPlayer}>Prev</div>
-                                    <div className="next-button" onClick={this.onNextPlayer}>Next</div>
-                                </div>
-                            : null
-}
+                            ? <TurnControlsComponent next={this.onNextPlayer} prev={this.onPrevPlayer}/>
+                            : null}
                     </div>
                     <div className="right-side">
                         {this.props.players.length > 0
@@ -121,6 +123,10 @@ class App extends Component {
 }
                     </div>
                 </div>
+                <footer>
+                    <hr/>
+                    by jonathan turnbull
+                </footer>
             </div>
         );
     }

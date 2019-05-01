@@ -15,8 +15,7 @@ export default function playerReducer(state = [], {type, payload}) {
             ]
         case REMOVE_PLAYER:
             return state.filter((data, i) => i !== payload.id);
-                
-            
+
         default:
             return state;
     }
