@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import {addPlayer} from "./actions/add-player-action";
+import {removePlayer} from "./actions/add-player-action";
 import {nextPlayer} from "./actions/next-player-action";
 
 import CardComponent from "./components/CardComponent";
@@ -21,6 +22,10 @@ class App extends Component {
 
         this.onPrevPlayer = this
             .onPrevPlayer
+            .bind(this);
+
+        this.onRemovePlayer = this
+            .onRemovePlayer
             .bind(this);
 
     }
@@ -74,7 +79,14 @@ class App extends Component {
                 .onNextPlayer(this.activePlayer);
         }
     }
-
+    onRemovePlayer(index) {
+        if (this.props.players.length > 0) {
+            console.log(index);
+            this
+                .props
+                .onRemovePlayer(index);
+        }
+    }
     render() {
         return (
             <div className="App">
@@ -82,13 +94,13 @@ class App extends Component {
                     <div className="left-side">
                         <InputComponent/>
                         <div className="input-button" onClick={this.onAddPlayer}>Add</div>
-                        {
-                        this.props.players.length > 1 ?
-                        <div className="turn-controls">
-                            <div className="prev-button" onClick={this.onPrevPlayer}>Prev</div>
-                            <div className="next-button" onClick={this.onNextPlayer}>Next</div>
-                        </div> : null
-                        }
+                        {this.props.players.length > 1
+                            ? <div className="turn-controls">
+                                    <div className="prev-button" onClick={this.onPrevPlayer}>Prev</div>
+                                    <div className="next-button" onClick={this.onNextPlayer}>Next</div>
+                                </div>
+                            : null
+}
                     </div>
                     <div className="right-side">
                         {this.props.players.length > 0
@@ -100,7 +112,8 @@ class App extends Component {
                                     key={index}
                                     order={index}
                                     turn={this.props.nextPlayer}
-                                    players={player}/>)
+                                    players={player}
+                                    click={(e) => this.onRemovePlayer(index)}/>)
 
                             : <div className="card-component rainbow-card">
                                 <div>Add a Player or a Spooky Monster!</div>
@@ -117,7 +130,8 @@ const mapStateToProps = state => ({players: state.players, nextPlayer: state.nex
 
 const mapActionsToProps = {
     onAddPlayer: addPlayer,
-    onNextPlayer: nextPlayer
+    onNextPlayer: nextPlayer,
+    onRemovePlayer: removePlayer
 
 }
 
