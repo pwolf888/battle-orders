@@ -15,11 +15,11 @@ const allReducers = combineReducers({players: playerReducer, nextPlayer: nextPla
 
 const store = createStore(allReducers, {
 
-    players: [
-        {name: 'alex', roll: 30, monster: 'player-color'},
-       {name: 'wolf', roll: 20, monster: 'monster-color', health: 13},
+     players: [
+    //     {name: 'alex', roll: 30, monster: 'player-color'},
+    //    {name: 'wolf', roll: 20, monster: 'monster-color', health: 13},
        
-       {name: 'corey', roll: 40, monster: 'player-color'}
+    //    {name: 'corey', roll: 40, monster: 'player-color'}
 
     ]
 
